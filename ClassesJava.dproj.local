@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/03/19 00:40:14.000.471,=C:\Users\Sandro\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/03/22 22:46:10.000.486,=C:\Users\Sandro\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/03/22 23:19:42.000.264,=C:\Users\Sandro\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/03/22 23:36:14.000.648,=D:\projetoClassesJava\untPrincipal.pas</Transaction>
+    <Transaction>2014/03/23 14:12:50.000.874,=D:\projetoClassesJava\DataModule.pas</Transaction>
+    <Transaction>2014/03/23 14:13:07.000.449,=D:\projetoClassesJava\model\UntConexao.pas</Transaction>
+    <Transaction>2014/03/23 14:22:00.000.027,D:\projetoClassesJava\model\Project1.dproj=C:\Users\Sandro\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2014/03/23 14:24:09.000.801,D:\projetoClassesJava\model\ClassesJava.dproj=D:\projetoClassesJava\model\Project1.dproj</Transaction>
+    <Transaction>2014/03/23 14:26:01.000.785,D:\projetoClassesJava\ClassesJava.dproj=D:\projetoClassesJava\model\ClassesJava.dproj</Transaction>
+    <Transaction>2014/03/23 15:41:19.000.160,D:\projetoClassesJava\model\UntConexao.pas=</Transaction>
+    <Transaction>2014/03/23 16:14:32.000.255,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/03/23 16:15:42.000.226,D:\projetoClassesJava\Unit1.pas=D:\projetoClassesJava\untModel.pas</Transaction>
+    <Transaction>2014/03/23 16:31:57.000.416,=C:\geraClassePostgresVersaoFinal\untFuncoes.pas</Transaction>
+    <Transaction>2014/03/23 16:32:19.000.432,C:\geraClassePostgresVersaoFinal\untFuncoes.pas=</Transaction>
+    <Transaction>2014/03/23 16:32:40.000.872,=D:\projetoClassesJava\untFuncoes.pas</Transaction>
+    <Transaction>2014/03/23 18:00:24.000.183,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/03/23 18:04:37.000.053,D:\projetoClassesJava\Unit1.pas=D:\projetoClassesJava\untBaseGeradora.pas</Transaction>
+    <Transaction>2014/03/23 18:22:30.000.563,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/03/23 18:22:46.000.501,D:\projetoClassesJava\Unit1.pas=D:\projetoClassesJava\untRepository.pas</Transaction>
+    <Transaction>2014/03/23 18:45:59.000.936,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/03/23 18:46:11.000.882,D:\projetoClassesJava\Unit1.pas=D:\projetoClassesJava\untConverter.pas</Transaction>
+    <Transaction>2014/03/23 19:16:42.000.974,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/03/23 19:31:58.000.368,=D:\projetoClassesJava\Unit2.pas</Transaction>
+    <Transaction>2014/03/23 19:32:14.000.462,D:\projetoClassesJava\Unit2.pas=D:\projetoClassesJava\untService.pas</Transaction>
+    <Transaction>2014/03/23 19:50:29.000.291,=D:\projetoClassesJava\Unit2.pas</Transaction>
+    <Transaction>2014/03/23 19:50:45.000.944,D:\projetoClassesJava\Unit2.pas=D:\projetoClassesJava\untCadastroBean.pas</Transaction>
+    <Transaction>2014/03/23 20:03:25.000.220,D:\projetoClassesJava\Unit1.pas=D:\projetoClassesJava\untXHTML.pas</Transaction>
+    <Transaction>2014/04/12 14:34:44.000.153,=D:\projetoClassesJava\testeIntf.pas</Transaction>
+    <Transaction>2014/04/12 14:34:44.000.062,=D:\projetoClassesJava\testeImpl.pas</Transaction>
+    <Transaction>2014/04/12 14:43:02.000.861,=D:\projetoClassesJava\testeImpl.pas</Transaction>
+    <Transaction>2014/04/12 14:43:02.000.888,=D:\projetoClassesJava\testeIntf.pas</Transaction>
+    <Transaction>2014/04/12 18:31:44.000.987,=D:\projetoClassesJava\dIntf.pas</Transaction>
+    <Transaction>2014/04/12 18:31:44.000.935,=D:\projetoClassesJava\dImpl.pas</Transaction>
+    <Transaction>2014/04/12 19:00:01.000.553,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2014/04/12 19:03:47.000.139,=D:\projetoClassesJava\Unit1.pas</Transaction>
+    <Transaction>2019/02/08 23:54:00.000.616,D:\FontesGIT\projetoClassesJava\DataModule.pas=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="untBaseGeradora.pas"/>
+    <File Path="untCadastroBean.pas"/>
+    <File Path="untConverter.pas"/>
+    <File Path="untFuncoes.pas"/>
+    <File Path="untModel.pas"/>
+    <File Path="untPrincipal.pas"/>
+    <File Path="untPrincipal.dfm"/>
+    <File Path="untRepository.pas"/>
+    <File Path="untService.pas"/>
+    <File Path="untXHTML.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>
