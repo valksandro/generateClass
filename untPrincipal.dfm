@@ -21,7 +21,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 0
     Width = 924
     Height = 609
-    ActivePage = tsConfiguracoes
+    ActivePage = tsEndpoints
     Align = alClient
     TabOrder = 0
     object tsPrincipal: TTabSheet
@@ -162,6 +162,8 @@ object frmPrincipal: TfrmPrincipal
     object tsConfiguracoes: TTabSheet
       Caption = 'Configura'#231#245'es'
       ImageIndex = 1
+      ExplicitLeft = 8
+      ExplicitTop = 28
       object Panel3: TPanel
         Left = 85
         Top = 57
@@ -345,6 +347,137 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Gerar Tradu'#231#227'o'
         TabOrder = 8
         OnClick = btnTraducaoClick
+      end
+    end
+    object tsEndpoints: TTabSheet
+      Caption = 'Endpoints'
+      ImageIndex = 2
+      ExplicitLeft = 8
+      ExplicitTop = 28
+      object Panel10: TPanel
+        Left = 0
+        Top = 55
+        Width = 916
+        Height = 526
+        Align = alClient
+        Caption = 'Panel10'
+        TabOrder = 0
+        ExplicitLeft = 88
+        ExplicitTop = 184
+        ExplicitHeight = 581
+        object DBGrid3: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 914
+          Height = 524
+          Align = alClient
+          DataSource = dsEndpoints
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'Tahoma'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'Name'
+              Title.Caption = 'Method Name'
+              Width = 221
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Type'
+              PickList.Strings = (
+                'get'
+                'post')
+              Width = 73
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'Return'
+              PickList.Strings = (
+                'Object'
+                'Objects List')
+              Width = 105
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'URL'
+              Width = 458
+              Visible = True
+            end>
+        end
+      end
+      object pnlGerar: TPanel
+        Left = 0
+        Top = 526
+        Width = 916
+        Height = 55
+        TabOrder = 1
+        object btnGerar: TBitBtn
+          Left = 424
+          Top = 16
+          Width = 75
+          Height = 25
+          Caption = 'Gerar'
+          TabOrder = 0
+        end
+        object Button2: TButton
+          Left = 404
+          Top = 15
+          Width = 117
+          Height = 25
+          Caption = 'Gerar'
+          TabOrder = 1
+          OnClick = Button2Click
+        end
+      end
+      object pnlDados: TPanel
+        Left = 0
+        Top = 0
+        Width = 916
+        Height = 55
+        Align = alTop
+        TabOrder = 2
+        ExplicitTop = -5
+        object Label4: TLabel
+          Left = 10
+          Top = 5
+          Width = 55
+          Height = 13
+          Caption = 'Class Name'
+        end
+        object Label5: TLabel
+          Left = 258
+          Top = 5
+          Width = 79
+          Height = 13
+          Caption = 'Destination Path'
+        end
+        object edtClassName: TEdit
+          Left = 10
+          Top = 21
+          Width = 200
+          Height = 21
+          TabOrder = 0
+        end
+        object edtDestinationPath: TEdit
+          Left = 258
+          Top = 21
+          Width = 351
+          Height = 21
+          TabOrder = 1
+        end
       end
     end
   end
@@ -1531,5 +1664,61 @@ object frmPrincipal: TfrmPrincipal
     DataSet = cdsTraducao
     Left = 156
     Top = 448
+  end
+  object cdsEndpoints: TClientDataSet
+    PersistDataPacket.Data = {
+      7F0000009619E0BD0100000018000000040000000000030000007F00044E616D
+      65010049000000010005574944544802000200C8000454797065010049000000
+      01000557494454480200020014000652657475726E0100490000000100055749
+      4454480200020032000355524C02004900000001000557494454480200020088
+      130000}
+    Active = True
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'Name'
+        DataType = ftString
+        Size = 200
+      end
+      item
+        Name = 'Type'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Return'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'URL'
+        DataType = ftString
+        Size = 5000
+      end>
+    IndexDefs = <>
+    Params = <>
+    StoreDefs = True
+    Left = 224
+    Top = 128
+    object cdsEndpointsName: TStringField
+      FieldName = 'Name'
+      Size = 200
+    end
+    object cdsEndpointsType: TStringField
+      FieldName = 'Type'
+    end
+    object cdsEndpointsReturn: TStringField
+      FieldName = 'Return'
+      Size = 50
+    end
+    object cdsEndpointsURL: TStringField
+      FieldName = 'URL'
+      Size = 5000
+    end
+  end
+  object dsEndpoints: TDataSource
+    DataSet = cdsEndpoints
+    Left = 224
+    Top = 176
   end
 end
