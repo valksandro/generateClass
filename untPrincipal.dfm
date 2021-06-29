@@ -162,8 +162,6 @@ object frmPrincipal: TfrmPrincipal
     object tsConfiguracoes: TTabSheet
       Caption = 'Configura'#231#245'es'
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object Panel3: TPanel
         Left = 85
         Top = 57
@@ -352,8 +350,6 @@ object frmPrincipal: TfrmPrincipal
     object tsEndpoints: TTabSheet
       Caption = 'Endpoints'
       ImageIndex = 2
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object Panel10: TPanel
         Left = 0
         Top = 55
@@ -362,9 +358,6 @@ object frmPrincipal: TfrmPrincipal
         Align = alClient
         Caption = 'Panel10'
         TabOrder = 0
-        ExplicitLeft = 88
-        ExplicitTop = 184
-        ExplicitHeight = 581
         object DBGrid3: TDBGrid
           Left = 1
           Top = 1
@@ -424,21 +417,13 @@ object frmPrincipal: TfrmPrincipal
         Width = 916
         Height = 55
         TabOrder = 1
-        object btnGerar: TBitBtn
-          Left = 424
-          Top = 16
-          Width = 75
-          Height = 25
-          Caption = 'Gerar'
-          TabOrder = 0
-        end
         object Button2: TButton
           Left = 404
           Top = 15
           Width = 117
           Height = 25
           Caption = 'Gerar'
-          TabOrder = 1
+          TabOrder = 0
           OnClick = Button2Click
         end
       end
@@ -449,7 +434,6 @@ object frmPrincipal: TfrmPrincipal
         Height = 55
         Align = alTop
         TabOrder = 2
-        ExplicitTop = -5
         object Label4: TLabel
           Left = 10
           Top = 5

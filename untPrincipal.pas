@@ -103,7 +103,6 @@ type
     Panel10: TPanel;
     pnlGerar: TPanel;
     DBGrid3: TDBGrid;
-    btnGerar: TBitBtn;
     pnlDados: TPanel;
     edtClassName: TEdit;
     Label4: TLabel;
@@ -311,7 +310,6 @@ begin
 
   cdsEndpoints.First;
 
-
   while not cdsEndpoints.Eof do begin
     slFile.Add('');
     slFile.Add('  @override');
@@ -325,7 +323,7 @@ begin
       + Copy(cdsEndpointsName.Text, 2, Length(cdsEndpointsName.Text) - 1);
 
     if (cdsEndpointsType.Text = 'get') then begin
-      strLinha := strLinha + cdsEndpointsName.Text + '(String body) async {';
+      strLinha := strLinha + strEndpointName + '(String body) async {';
 
       slFile.Add(strLinha);
       slFile.Add('    final response = await _dio.get(sprintf(_get'
@@ -339,7 +337,7 @@ begin
       slFile.Add('      else');
       slFile.Add('        return [];');
     end else begin
-      strLinha := strLinha + cdsEndpointsName.Text + '(' + strClassName
+      strLinha := strLinha + strEndpointName + '(' + strClassName
         + ' ' + strObjectName + ') async {';
 
       slFile.Add(strLinha);
@@ -368,12 +366,96 @@ begin
       strDestinationPath := strDestinationPath + '\';
   end;
 
-  strDestinationPath := strDestinationPath + strObjectName
-    + '_remote_data_source.dart';
+  slFile.SaveToFile(strDestinationPath + strObjectName
+    + '_remote_data_source.dart');
 
-  slFile.SaveToFile(strDestinationPath);
+  slFile.Clear;
+  cdsEndpoints.First;
 
-  cdsEndpoints.DisableControls;
+  slFile.Add('import ''package:dartz/dartz.dart'';');
+  slFile.Add('import ''package:harv/core/error/exceptions.dart'';');
+  slFile.Add('import ''package:harv/core/error/failures.dart'';');
+  slFile.Add('import ''package:harv/features/' + AnsiLowerCase(strObjectName)
+    + '/data/models/' + AnsiLowerCase(strObjectName) + '_model.dart'';');
+  slFile.Add('');
+  slFile.Add('abstract class ' + strClassName + 'Repository {');
+
+  while not cdsEndpoints.Eof do begin
+    if (cdsEndpointsReturn.Text = 'Object') then
+      strLinha := '  Future<Either<Failure, ' + strClassName + '>> '
+    else
+      strLinha := '  Future<Either<Failure, List<' + strClassName + '>>> ';
+
+    strEndpointName := AnsiLowerCase(Copy(cdsEndpointsName.Text, 1, 1))
+      + Copy(cdsEndpointsName.Text, 2, Length(cdsEndpointsName.Text) - 1);
+
+    if (cdsEndpointsType.Text = 'get') then
+      strLinha := strLinha + strEndpointName + '(String body);'
+    else
+      strLinha := strLinha + strEndpointName + '(' + strClassName
+        + ' ' + strObjectName + ');';
+
+    slFile.Add(strLinha);
+    cdsEndpoints.Next;
+  end;
+
+  slFile.Add('}');
+  slFile.Add('');
+  slFile.Add('class ' + strClassName + 'RepositoryImpl extends '
+    + strClassName + 'Repository {');
+  slFile.Add('  final ' + strClassName + 'RemoteDataSource dataSource;');
+  slFile.Add('');
+  slFile.Add('  ' + strClassName + 'RepositoryImpl({this.dataSource});');
+
+  cdsEndpoints.First;
+
+  while not cdsEndpoints.Eof do begin
+    slFile.Add('');
+    slFile.Add('  @override');
+
+    if (cdsEndpointsReturn.Text = 'Object') then
+      strLinha := '  Future<Either<Failure, ' + strClassName + '>> '
+    else
+      strLinha := '  Future<Either<Failure, List<' + strClassName + '>>> ';
+
+    strEndpointName := AnsiLowerCase(Copy(cdsEndpointsName.Text, 1, 1))
+      + Copy(cdsEndpointsName.Text, 2, Length(cdsEndpointsName.Text) - 1);
+
+    if (cdsEndpointsType.Text = 'get') then begin
+      strLinha := strLinha + strEndpointName + '(String body) async {';
+
+      slFile.Add(strLinha);
+      slFile.Add('    try {');
+      slFile.Add('      final ' + strObjectName + 's = await dataSource.'
+        + strEndpointName + '(body);');
+      slFile.Add('      return Right(' + strObjectName + 's);');
+
+    end else begin
+      strLinha := strLinha + strEndpointName + '(' + strClassName
+        + ' ' + strObjectName + ') async {';
+
+      slFile.Add(strLinha);
+      slFile.Add('    try {');
+      slFile.Add('      final result = await dataSource.' + strEndpointName + '(' + strObjectName + ');');
+      slFile.Add('      return Right(result);');
+    end;
+
+    slFile.Add('    } on ServerException {');
+    slFile.Add('      return Left(ServerFailure());');
+    slFile.Add('    } catch (e) {');
+    slFile.Add('      return Left(ServerFailure(message: e.message));');
+    slFile.Add('    }');
+    slFile.Add('  }');
+
+    cdsEndpoints.Next;
+  end;
+
+  slFile.Add('}');
+
+  slFile.SaveToFile(strDestinationPath + strObjectName
+    + '_repository_impl.dart');
+
+  cdsEndpoints.EnableControls;
   cdsEndpoints.First;
 end;
 
